@@ -1,0 +1,125 @@
+
+ <!-- Title group  -->
+ <div class="title-group">
+    <h1 class="mat-h1">Add Product</h1>
+    <mat-divider fxFlex="2 0"></mat-divider>
+  </div>
+ 
+  <!-- Product form -->
+  <div class="inner-wrapper">
+    <form [formGroup]="productForm" (ngSubmit)="submitProduct()" #resetBookForm="ngForm" novalidate>
+      <!-- Left block -->
+      <mat-card>
+        <div class="controlers-wrapper">
+          <!-- Book name -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Product name" formControlName="product_name">
+            <mat-error *ngIf="handleError('product_name', 'required')">
+              You must provide a<strong>product name</strong>
+            </mat-error>
+          </mat-form-field>
+ 
+          <!-- price -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="product price" formControlName="product_price" pattern="[0-9]*" minlength="2"
+              maxlength="10">
+            <mat-error *ngIf="handleError('product_price', 'required')">
+              You must provide a <strong>10 digit ISBN</strong>
+            </mat-error>
+            <mat-error *ngIf="handleError('product_price', 'pattern')">
+              Only numbers are allowed
+            </mat-error>
+            <mat-error *ngIf="handleError('product_price', 'minlength')">
+              Your <strong>product_price</strong> must be 2 digit
+            </mat-error>
+          </mat-form-field>
+ 
+          <!-- Author name 
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Author name" formControlName="author_name">
+            <mat-error *ngIf="handleError('author_name', 'required')">
+              You must provide an <strong>author name</strong>
+            </mat-error>
+          </mat-form-field>-->
+ 
+          <!-- Publication date 
+          <mat-form-field>
+            <input matInput readonly [matDatepicker]="picker" placeholder="Publication date"
+              formControlName="publication_date" (dateChange)="formatDate($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="handleError('publication_date', 'required')">
+              Publication date is required
+            </mat-error>
+          </mat-form-field>-->
+        </div>
+      </mat-card>
+ 
+      <!-- Right block -->
+      
+      <mat-card>
+        <div class="controlers-wrapper">
+          <!-- product binding -->
+          <!---->
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="selected" formControlName="product_category">
+              <mat-option (click)="onClickMe(CategoryType)" [value]="CategoryType" *ngFor="let CategoryType of CategoryType">
+                {{CategoryType}}
+                
+              </mat-option>
+              
+
+            </mat-select>
+            
+            <mat-error *ngIf="handleError('product_description', 'required')">
+                Category is required
+            </mat-error>
+
+
+
+          </mat-form-field>
+          <!--Technical file-->
+          <div *ngIf="clicked">
+            <h1>Technical file</h1>
+            <div *ngFor="let item of inputFields">
+              <mat-form-field  class="example-full-width" >
+                <input matInput placeholder="{{item}}" formControlName="{{item}}">
+                
+              </mat-form-field>
+          </div>
+          </div>
+
+ 
+          <!-- Product stock -->
+          <div class="misc-bottom-padding">
+            <mat-label>Available in stock: </mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="product_availability">
+              <mat-radio-button value="Yes">Yes </mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+ 
+          <!-- Add languages -->
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Product description" formControlName="product_description"></textarea>
+            <mat-error *ngIf="handleError('product_description', 'required')">
+              You must provide a<strong>product description</strong>
+            </mat-error>
+          
+            
+          </mat-form-field>
+        </div>
+      </mat-card>
+
+      <!-- Submit & Reset -->
+      <mat-card>
+        <div class="full-wrapper button-wrapper">
+          <div class="button-wrapper">
+            <button mat-flat-button color="warn">Submit</button>
+            <button mat-flat-button color="war" (click)="resetForm()">Clear</button>
+          </div>
+        </div>
+      </mat-card>
+    </form>
+  </div>

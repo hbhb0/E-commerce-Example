@@ -1,0 +1,113 @@
+<!-- Title group  -->
+<div class="title-group">
+    <h1 class="mat-h1">Edit Product</h1>
+    <mat-divider fxFlex="1 0"></mat-divider>
+  </div>
+  
+  <!-- Book form -->
+  <div class="inner-wrapper">
+    <form [formGroup]="editProductForm" (ngSubmit)="updateProduct()" novalidate>
+      <mat-card>
+        <div class="controlers-wrapper">
+          <!-- Book name -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Product name" formControlName="product_name">
+            <mat-error *ngIf="handleError('product_name', 'required')">
+              You must provide a<strong>Product name</strong>
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- ISBN -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="product price" formControlName="product_price" pattern="[0-9]*" minlength="3"
+              maxlength="10">
+            <mat-error *ngIf="handleError('product_price', 'required')">
+              You must provide a <strong>at least 3 digit ISBN</strong>
+            </mat-error>
+            <mat-error *ngIf="handleError('product_price', 'pattern')">
+              Only numbers are allowed
+            </mat-error>
+            <mat-error *ngIf="handleError('product_price', 'minlength')">
+              Your <strong>product_price</strong> must be 10 digit
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Author name -->
+          <!--
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Author name" formControlName="author_name">
+            <mat-error *ngIf="handleError('author_name', 'required')">
+              You must provide an <strong>author name</strong>
+            </mat-error>
+          </mat-form-field>
+        -->
+  
+          <!-- Publication date -->
+          <!--
+          <mat-form-field>
+            <input matInput readonly [matDatepicker]="picker" placeholder="Publication date"
+              formControlName="publication_date" (dateChange)="formatDate($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="handleError('publication_date', 'required')">
+              Publication date is required
+            </mat-error>
+          </mat-form-field>
+          -->
+        </div>
+      </mat-card>
+  
+      <mat-card>
+        <div class="controlers-wrapper">
+          <!-- Book binding -->
+          <mat-form-field>
+            <mat-label>product category</mat-label>
+            <mat-select [(value)]="selected" formControlName="product_category">
+              <mat-option [value]="product_category" *ngFor="let product_category of CategoryType">{{product_category}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="handleError('product_category', 'required')">
+                product category type is required
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Product stock -->
+          <div class="misc-bottom-padding">
+            <mat-label>Available in stock: </mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="product_availability">
+              <mat-radio-button value="Yes">Yes</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+  
+          <!-- Add describtions -->
+          <!--
+          <mat-form-field class="multiple-items">
+            <mat-chip-list #chipList>
+              <mat-chip formControlName="product_description" *ngFor="let description of descriptionArray" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(description)">
+                {{description.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Add description" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <i class="material-icons tooltip-info" matTooltip="Enter item name and press enter to add multiple items">
+              info
+            </i>
+          </mat-form-field>
+          -->
+        </div>
+      </mat-card>
+  
+      <!-- Submit & Reset -->
+      <mat-card>
+        <div class="full-wrapper button-wrapper">
+          <div class="button-wrapper">
+            <button mat-flat-button color="warn">Update</button>
+            <button mat-flat-button color="war" type="button" (click)="goBack()">Go Back</button>
+          </div>
+        </div>
+      </mat-card>
+    </form>
+  </div>

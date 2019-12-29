@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V16</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/adminAssets/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('../../../assets/adminAssets/images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Product Creation
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5">
+					<!--Product name input-->
+					<div class="wrap-input100 validate-input" data-validate = "Enter Product name">
+						<input class="input100" type="text" name="Product name" placeholder="Product name" [(ngModel)]="Productname">
+						<span class="focus-input100" data-placeholder="&#xe82f;"></span>
+					</div>
+					<!--Product price input-->
+					<div class="wrap-input100 validate-input" data-validate="Enter Product price">
+						<input class="input100" type="number" name="Product price" placeholder="Product price" [(ngModel)]="Productprice">
+						<span class="focus-input100" data-placeholder="&#xe82d;"></span>
+					</div>
+					<!--Product category input-->
+					<div class="wrap-input100 validate-input" data-validate="Enter Product category">
+						<input class="input100" type="text" name="Product category" placeholder="Product category" [(ngModel)]="Productcategory">
+						<span class="focus-input100" data-placeholder="&#xe872;"></span>
+					</div>
+					<!--Product availability input-->
+					<div class="wrap-input100 validate-input" data-validate="availability">
+						<input class="input100" type="text" name="Product price" placeholder="Product availability" [(ngModel)]="Productavailability">
+						<span class="focus-input100" data-placeholder="&#xe87f;"></span>
+					</div>
+					<!--Product description input-->
+					<div class="wrap-input100 validate-input" data-validate="Enter Product description">
+						<input class="input100" type="text" name="Product description" placeholder="Product description" [(ngModel)]="Productdescription">
+						<span class="focus-input100" data-placeholder="&#xe802;"></span>
+					</div>
+					<!--Product specifications input
+					<div class="wrap-input100 validate-input" data-validate="Enter Product price">
+						<input class="input100" type="text" name="Product price" placeholder="Product price" [(ngModel)]="Productprice">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+					-->
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn" (click)='AdminSignIn(AdminName,AdminPass)'>
+							Create
+						</button>
+						<button class="login100-form-btn" (click)='LogoutAdmin()'>
+							Cancel
+						</button>
+                    </div>
+                    <div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn" (click)='LogoutAdmin()'>
+							Cancel
+						</button>
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="../../../assets/adminAssets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../../assets/adminAssets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../../assets/adminAssets/vendor/bootstrap/js/popper.js"></script>
+	<script src="../../../assets/adminAssets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../../assets/adminAssets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../../assets/adminAssets/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../../../assets/adminAssets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../../../assets/adminAssets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../../../assets/adminAssets/js/main.js"></script>
+
+</body>
+</html>

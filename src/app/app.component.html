@@ -1,0 +1,22 @@
+
+<div *ngIf="admin; else notAdmin">
+
+    <app-products-management></app-products-management>
+
+</div>
+
+<ng-template #notAdmin>
+
+    <app-header></app-header>
+
+    <router-outlet></router-outlet>
+    
+    <app-footer></app-footer>
+
+</ng-template>
+
+
+
+
+
+
